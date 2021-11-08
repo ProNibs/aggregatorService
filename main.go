@@ -25,8 +25,19 @@ func main() {
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 
+	frontendHostname := os.Getenv("FRONTENDHOSTNAME")
+	frontendPort := os.Getenv("FRONTENDPORT")
+
+	// Defaults for dev environment
+	if frontendHostname == "" {
+		frontendHostname = "localhost"
+	}
+	if frontendPort == "" {
+		frontendPort = "3000"
+	}
+
 	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
-		AllowOrigins: []string{"http://localhost:3000"},
+		AllowOrigins: []string{"http://"+frontendHostname+":"+frontendPort},
 		AllowHeaders: []string{echo.HeaderOrigin, echo.HeaderContentType, echo.HeaderAccept},
 	}))
 
