@@ -14,6 +14,9 @@ RUN go build -o main .
 
 
 FROM golang:1.17.3-alpine3.14 as prod
+# This is the default, but just to be explicit
+ENV HTTP_PORT=7777
 WORKDIR /app
 COPY --from=build /app/main .
+EXPOSE 7777
 CMD [ "/app/main" ]
