@@ -34,6 +34,11 @@ func main() {
 		return c.JSON(http.StatusOK, struct{ Status string }{Status: "OK"})
 	})
 
+	// Health check
+	e.GET("/health", func(c echo.Context) error {
+		return c.JSON(http.StatusOK, struct{ Status string }{Status: "OK"})
+	})
+
 	// CondenserReading
 
 	e.GET("/condenser/:id", func(c echo.Context) error {
