@@ -1,7 +1,7 @@
 apiVersion: kappctrl.k14s.io/v1alpha1
 kind: App
 metadata:
-  name: dashboard-web-app
+  name: aggregator-app
   namespace: default
 spec:
   syncPeriod: 1m
