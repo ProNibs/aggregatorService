@@ -37,7 +37,7 @@ func main() {
 	}
 
 	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
-		AllowOrigins: []string{"http://"+frontendHostname+":"+frontendPort},
+		AllowOrigins: []string{"https://"+frontendHostname+":"+frontendPort},
 		AllowHeaders: []string{echo.HeaderOrigin, echo.HeaderContentType, echo.HeaderAccept},
 	}))
 
