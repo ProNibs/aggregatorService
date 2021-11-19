@@ -1,0 +1,27 @@
+apiVersion: kappctrl.k14s.io/v1alpha1
+kind: App
+metadata:
+  name: dashboard-web-app
+  namespace: default
+spec:
+  syncPeriod: 1m
+  serviceAccountName: default-cluster-sa
+  fetch:
+  - git:
+      url: https://github.com/pronibs/capstone.git
+      ref: origin/develop
+      subPath: aggregatorService/k8s
+  - git:
+      url: https://github.com/pronibs/capstone.git
+      ref: origin/develop
+      subPath: global-deployments/k8s
+
+  template:
+  - ytt: {}
+      # ignoreUnknownComments: true
+      # strict: false
+      # paths:
+      # - 
+
+  deploy:
+  - kapp: {}

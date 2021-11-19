@@ -1,0 +1,15 @@
+#@data/values
+---
+appName: aggregatorservice
+namespace: aggregator-service
+containerPort: 7777
+imageName: aggregatorservice
+ingressHost: aggregator.127.0.0.1.nip.io
+healthCheckPath: /health
+env: 
+- name: FRONTENDHOSTNAME
+  value: dashboard.web.127.0.0.1.nip.io
+- name: FRONTENDPORT
+  value: "8443"
+- name: HTTP_PORT
+  value: "7777"
